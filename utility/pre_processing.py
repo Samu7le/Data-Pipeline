@@ -1,13 +1,6 @@
 import polars as pl
 import os
-import logging
-
-logger = logging.getLogger(__name__)    # TO-DO improve logger configuration
-logging.basicConfig(level=logging.DEBUG, 
-                    format='%(asctime)s %(levelname)-8s %(message)s', 
-                    datefmt='%a, %d %b %Y %H:%M:%S', 
-                    filename='logs/pipeline.log', 
-                    filemode='w')
+from logger import logger
 
 # ----------------------------------------------------------- TO-DO MOVE TO EXTERNAL FILE
 PATH_DATA_ENTRY = "C:\\Users\\Samue\\Desktop\\learning\\data_pipeline\\data_acquisition" # improve reliability and reproducibility with external file
