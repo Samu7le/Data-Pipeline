@@ -1,6 +1,1 @@
-Mon, 08 Dec 2025 14:34:53 INFO     |PIPELINE| Counter : 3
-Mon, 08 Dec 2025 14:34:53 INFO     |PIPELINE| Content : ciao.txt
-Mon, 08 Dec 2025 14:34:53 INFO     |PIPELINE| Content : fault_header.csv
-Mon, 08 Dec 2025 14:34:53 INFO     |PIPELINE| Content : healthcare_dataset.csv
-Mon, 08 Dec 2025 14:34:53 INFO     |PIPELINE| No matched : ciao.txt
-Mon, 08 Dec 2025 14:34:53 INFO     |PIPELINE| No matched : fault_header.csv
+Mon, 08 Dec 2025 16:51:03 INFO     |PIPELINE| START
