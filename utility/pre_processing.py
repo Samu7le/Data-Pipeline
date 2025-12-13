@@ -21,6 +21,9 @@ class PreProcessor():
         counter = 0
         for _ in os.scandir(self.path):
             counter += 1
+
+        logger.info(f"|PIPELINE| Number of files: {counter}")
+
         return counter
     
     def data_acquition_list(self, path: str) -> list: #TO-DO CHECK FILE EXTENSIONS IF IT'S .CSV
@@ -35,6 +38,9 @@ class PreProcessor():
         files = []
         for file in os.listdir(path):
             files.append(file)
+
+        logger.info(f"|PIPELINE| Display files: {files}")
+
         return files
 
     def header_checker(self, path: str, files : list, validator: str) -> list:
@@ -57,6 +63,9 @@ class PreProcessor():
                 logger.info(f"|PIPELINE| No matched : {file}")
                 continue
             sanitized.append(file)
+        
+        logger.info(f"|PIPELINE| Correct files: {sanitized}")
+
         return sanitized
 
     def show_data(self, path: str, files : list) -> None:
