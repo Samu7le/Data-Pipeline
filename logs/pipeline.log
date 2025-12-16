@@ -1,6 +1,0 @@
-Tue, 16 Dec 2025 22:04:14 INFO     |PIPELINE| START
-Tue, 16 Dec 2025 22:04:14 INFO     |PIPELINE| Number of files: 3
-Tue, 16 Dec 2025 22:04:14 INFO     |PIPELINE| Display files: ['ciao.txt', 'fault_header.csv', 'healthcare_dataset.csv']
-Tue, 16 Dec 2025 22:04:14 INFO     |PIPELINE| No matched : ciao.txt
-Tue, 16 Dec 2025 22:04:14 INFO     |PIPELINE| No matched : fault_header.csv
-Tue, 16 Dec 2025 22:04:14 INFO     |PIPELINE| Correct files: ['healthcare_dataset.csv']
