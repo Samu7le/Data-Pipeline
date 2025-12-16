@@ -58,7 +58,8 @@ class PreProcessor():
         '''
         sanitized = []
         for file in files:
-            df_csv = pl.read_csv(f"{path}/{file}", try_parse_dates=True)
+            df_csv = pl.read_csv(f"{path}/{file}", try_parse_dates=True, n_rows=0)
+            print(f"DEBUG {df_csv}")
             if df_csv.columns != validator: # TO-DO improve diff algorithm
                 logger.info(f"|PIPELINE| No matched : {file}")
                 continue
