@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my_data_pipeline"
+version = "0.0.7"
+authors = [
+  { name="Samuele"},
+]
+description = "data pipeline in python to process data"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "polars"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = {find = {where = ["src"]}}

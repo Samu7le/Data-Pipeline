@@ -1,10 +1,12 @@
 import polars as pl
 import os
-from utility.logger import logger
+from data_pipeline.processing_pipe.logger import logger
+
+PATH_DATA_ENTRY = os.path.join(os.getcwd(), "data_acquisition")
 
 class PreProcessor():
 
-    def __init__(self, path, validator):
+    def __init__(self, validator, path = PATH_DATA_ENTRY):
         logger.info(f"|PIPELINE| START")
         self.path = path
         self.validator = validator
@@ -26,7 +28,7 @@ class PreProcessor():
 
         return counter
     
-    def data_acquition_list(self, path: str) -> list: #TO-DO CHECK FILE EXTENSIONS IF IT'S .CSV
+    def data_acquition_list(self, path: str = PATH_DATA_ENTRY) -> list: #TO-DO CHECK FILE EXTENSIONS IF IT'S .CSV
         '''
         Docstring: data_acquition_list
         
@@ -43,7 +45,7 @@ class PreProcessor():
 
         return files
 
-    def header_checker(self, path: str, files : list, validator: str) -> list:
+    def header_checker(self, files : list, validator: str, path: str = PATH_DATA_ENTRY) -> list:
         '''
         Docstring: header_checker
         
@@ -69,7 +71,7 @@ class PreProcessor():
 
         return sanitized
 
-    def show_data(self, path: str, files : list) -> None:
+    def show_data(self, files : list, path: str = PATH_DATA_ENTRY) -> None:
         '''
         Docstring: show_data
         

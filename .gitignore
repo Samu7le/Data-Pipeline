@@ -2,4 +2,4 @@
 pipeline.log
 __pycache__
 list_compare.py
-data_pipeline_library.egg-info
+*.egg-info
