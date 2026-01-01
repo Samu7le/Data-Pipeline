@@ -3,3 +3,5 @@ pipeline.log
 __pycache__
 list_compare.py
 *.egg-info
+TO-DO.txt
+.gitignore
