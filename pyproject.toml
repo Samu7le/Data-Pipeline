@@ -1,20 +1,19 @@
 [build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "my_data_pipeline"
 version = "0.0.7"
 authors = [
-  { name="Samuele"},
+  { name="Samuele" },
 ]
-description = "data pipeline in python to process data"
+description = "A modern data pipeline in Python to process data"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "polars"
 ]
 
-[tool.setuptools]
-package-dir = {"" = "src"}
-packages = {find = {where = ["src"]}}
+[tool.hatch.build.targets.wheel]
+packages = ["src/data_pipeline"]
