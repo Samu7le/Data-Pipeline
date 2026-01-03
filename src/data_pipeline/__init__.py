@@ -1,2 +1,2 @@
-from data_pipeline.processing_pipe.pre_processing import PreProcessor
-from data_pipeline.processing_pipe.logger import logger
+from data_pipeline.core.pre_processing import PreProcessor
+from data_pipeline.core.logger import logger

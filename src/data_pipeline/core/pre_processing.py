@@ -1,6 +1,6 @@
 import polars as pl
 import os
-from data_pipeline.processing_pipe.logger import logger
+from data_pipeline.core.logger import logger
 
 PATH_DATA_ENTRY = os.path.join(os.getcwd(), "data_acquisition")
 

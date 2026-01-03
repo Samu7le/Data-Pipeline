@@ -34,7 +34,7 @@ DATA_PIPELINE/
 │       │   └── job_test.py                             
 │       ├── logs/                                           <-- Directory for runtime log files
 │       │   └── pipeline.log                                
-│       └── processing_pipe/                                <-- Core logic and utility modules
+│       └── core/                                           <-- Core logic and utility modules
 │           ├── __init__.py                             
 │           ├── logger.py                                   <-- Logging configuration
 │           └── pre_processing.py                           <-- class with methods to pre processing data
@@ -47,4 +47,4 @@ DATA_PIPELINE/
 - **data_acquisition**: the enry poit of each dataset -> raw data
 - **jobs**: scripts of each data jobs to process different kind of transformation   and data validation
 - **logs**: logs of each job
-- **processing_pipe**: the main folder of the project, contains the classes to perform Preprocessing -> Validation -> Transformation -> Load
+- **core**: the main folder of the project, contains the classes to perform Preprocessing -> Validation -> Transformation -> Load
