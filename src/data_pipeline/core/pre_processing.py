@@ -6,7 +6,7 @@ PATH_DATA_ENTRY = os.path.join(os.getcwd(), "data_acquisition")
 
 class PreProcessor():
 
-    def __init__(self, validator, path = PATH_DATA_ENTRY):
+    def __init__(self, validator: list, path: str = PATH_DATA_ENTRY):
         logger.info(f"|PIPELINE| START")
         self.path = path
         self.validator = validator
