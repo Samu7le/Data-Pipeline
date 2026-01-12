@@ -1,7 +1,13 @@
 # DATA-PIPELINE
 
-## This is a side project to improve design skill in data-pipeline creation
+## Goals and Workflow
+In order to understand how create a robust and resilient data-piline in python I put togheter aspire to learn new library, like polars, but also improve design and programming skill.
+I choose OOP paradign, to abstract the componets like bricks.
+Under this section you find the architecture organization of the project, in simple term the goal is to perform **ETL**: **Extract** -> **Transform** -> **Load**
 
+The script **job_test.py** describe the workflow: first declare and entry data folder, second validate the header of .csv and then make the magic
+
+## Installation
 1. create python virtual env
 ```
 python -m venv venv 
