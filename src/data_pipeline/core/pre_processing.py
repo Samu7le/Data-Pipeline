@@ -11,46 +11,26 @@ class PreProcessor():
         self.path = path
         self.validator = validator
 
-    def data_counter(self) -> int:
+    def fetch_files(self) -> list: #TO-DO CHECK FILE EXTENSIONS IF IT'S .CSV
         '''
-        Docstring: data_counter
+        Docstring: fetch_files
         
-        :param path: path of folder entry-point data files
-        :type path: str
-        :return: number of files inside entry-point folder
-        :rtype: int
-        '''
-        counter = 0
-        for _ in os.scandir(self.path):
-            counter += 1
-
-        logger.info(f"|PIPELINE| Number of files: {counter}")
-
-        return counter
-    
-    def data_acquition_list(self, path: str = PATH_DATA_ENTRY) -> list: #TO-DO CHECK FILE EXTENSIONS IF IT'S .CSV
-        '''
-        Docstring: data_acquition_list
-        
-        :param path: path of folder entry point data files
-        :type path: str
         :return: list of all files inside entry-point folder
         :rtype: list
         '''
         files = []
-        for file in os.listdir(path):
+        for file in os.listdir(self.path):
             files.append(file)
 
         logger.info(f"|PIPELINE| Display files: {files}")
+        logger.info(f"|PIPELINE| Number of files: {len(files)}")
 
         return files
 
-    def header_checker(self, files : list, validator: str, path: str = PATH_DATA_ENTRY) -> list:
+    def header_checker(self, files : list, validator: str) -> list:
         '''
         Docstring: header_checker
-        
-        :param path: path of folder entry point data files
-        :type path: str
+
         :param files: list of files provided by data_acquisition_list function
         :type files: list
         :param validator: values of expected header
@@ -60,7 +40,7 @@ class PreProcessor():
         '''
         sanitized = []
         for file in files:
-            df_csv = pl.read_csv(f"{path}/{file}", try_parse_dates=True, n_rows=0)
+            df_csv = pl.read_csv(f"{self.path}/{file}", try_parse_dates=True, n_rows=0)
             print(f"DEBUG {df_csv}")
             if df_csv.columns != validator: # TO-DO improve diff algorithm
                 logger.info(f"|PIPELINE| No matched : {file}")
@@ -71,16 +51,14 @@ class PreProcessor():
 
         return sanitized
 
-    def show_data(self, files : list, path: str = PATH_DATA_ENTRY) -> None:
+    def show_preprocessed_data(self, files : list) -> None:
         '''
         Docstring: show_data
         
-        :param path: path of folder entry point data files
-        :type path: str
         :param files: list of validated files (matched validator)
         :type files: list
         '''
         for file in files:
-            df_csv = pl.read_csv(f"{path}/{file}", try_parse_dates=True)
+            df_csv = pl.read_csv(f"{self.path}/{file}", try_parse_dates=True)
             # print(f"file: {file} | columns: {df_csv.columns}")
             print(f"\n {df_csv}")
