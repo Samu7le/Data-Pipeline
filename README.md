@@ -1,29 +1,37 @@
 # DATA-PIPELINE
 
 ## Goals and Workflow
-In order to understand how create a robust and resilient data-piline in python I put togheter aspire to learn new library, like polars, but also improve design and programming skill.
-I choose OOP paradign, to abstract the componets like bricks.
-Under this section you find the architecture organization of the project, in simple term the goal is to perform **ETL**: **Extract** -> **Transform** -> **Load**
+To understand how to create a robust and resilient data pipeline in Python, I teamed up to learn new libraries, like polars, but also to improve my design and programming skills.
+I chose the OOP paradigm, to abstract components as building blocks.
+In this section, you'll find the organization of the project's architecture; in short, the goal is to execute **ETL**: **Extract** -> **Transform** -> **Load**
 
 The script **job_test.py** describe the workflow: first declare and entry data folder, second validate the header of .csv and then make the magic
 
 ## Installation
-1. create python virtual env
+1. clone the project
+```
+git clone https://github.com/Samu7le/Data-Pipeline.git 
+```
+2. create python virtual env
 ```
 python -m venv venv 
 ``` 
-2. activate python virtual env
+3. activate python virtual env
 ```
-.\venv\Script\activate                                                        #Windows 
+.\venv\Scripts\activate                                                        #Windows 
 ``` 
 ```
 source venv/bin/activate                                                    #unix-like
 ``` 
-3. mv to the root of the project and esecute command
+4. mv to the root folder of the project (where you found the file pyproject.toml) and esecute command
 ```
 pip install -e . 
 ``` 
-
+## Usage
+To run the test job, execute:
+```
+python src/data_pipeline/jobs/job_test.py
+```
 ## Architecture
 
 ### Folders Structure

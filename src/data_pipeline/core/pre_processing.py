@@ -27,7 +27,7 @@ class PreProcessor():
 
         return files
 
-    def header_checker(self, files : list, validator: str) -> list:
+    def header_checker(self, files : list, validator: list[str]) -> list:
         '''
         Docstring: header_checker
 
@@ -41,7 +41,6 @@ class PreProcessor():
         sanitized = []
         for file in files:
             df_csv = pl.read_csv(f"{self.path}/{file}", try_parse_dates=True, n_rows=0)
-            print(f"DEBUG {df_csv}")
             if df_csv.columns != validator: # TO-DO improve diff algorithm
                 logger.info(f"|PIPELINE| No matched : {file}")
                 continue
@@ -60,5 +59,4 @@ class PreProcessor():
         '''
         for file in files:
             df_csv = pl.read_csv(f"{self.path}/{file}", try_parse_dates=True)
-            # print(f"file: {file} | columns: {df_csv.columns}")
             print(f"\n {df_csv}")
