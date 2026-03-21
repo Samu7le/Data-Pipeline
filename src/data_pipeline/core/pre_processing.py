@@ -1,9 +1,8 @@
 import polars as pl
-import os
+from pathlib import Path
 from data_pipeline.core.logger import logger
 
-PATH_DATA_ENTRY = os.path.join(os.getcwd(), "data_acquisition")
-
+PATH_DATA_ENTRY = Path.joinpath(Path.cwd(), "data_acquisition")
 class PreProcessor():
 
     def __init__(self, validator: list, path: str = PATH_DATA_ENTRY):
@@ -11,7 +10,7 @@ class PreProcessor():
         self.path = path
         self.validator = validator
 
-    def fetch_files(self) -> list: #TO-DO CHECK FILE EXTENSIONS IF IT'S .CSV
+    def fetch_files(self) -> list: 
         '''
         Docstring: fetch_files
         
@@ -19,8 +18,9 @@ class PreProcessor():
         :rtype: list
         '''
         files = []
-        for file in os.listdir(self.path):
-            files.append(file)
+        for file in Path.iterdir(self.path):
+            logger.debug(f"DEBUG {file.name} type: {type(file)}")
+            files.append(file.name) # name attribute return the file name instead of path object
 
         logger.info(f"|PIPELINE| Display files: {files}")
         logger.info(f"|PIPELINE| Number of files: {len(files)}")
@@ -40,11 +40,13 @@ class PreProcessor():
         '''
         sanitized = []
         for file in files:
-            df_csv = pl.read_csv(f"{self.path}/{file}", try_parse_dates=True, n_rows=0)
-            if df_csv.columns != validator: # TO-DO improve diff algorithm
-                logger.info(f"|PIPELINE| No matched : {file}")
-                continue
-            sanitized.append(file)
+            if '.csv' in file:
+                logger.debug(f"pass for file: {file}")
+                df_csv = pl.read_csv(f"{self.path}/{file}", try_parse_dates=True, n_rows=0)
+                if df_csv.columns != validator: # TO-DO improve diff algorithm
+                    logger.info(f"|PIPELINE| No matched : {file}")
+                    continue
+                sanitized.append(file)
         
         logger.info(f"|PIPELINE| Correct files: {sanitized}")
 
